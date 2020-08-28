@@ -11,6 +11,7 @@ class App extends Component {
         Hello World
         <Person name="Neil Coutinho" age="32"/>
         <Person name="Karen Coutinho" age="31"/>
+        <Person name="Isabelle Coutinho" age="2"><p>I am a baby</p></Person>
       </div>
     )
 
