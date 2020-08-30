@@ -5,28 +5,33 @@ import Person from './Person/Person';
 
 const app = () => {
 
-  const [appState, setStateFn] = useState({
+  const [personState, setPersonStateFn] = useState({
       
-    greeting: `Hello World I'm from state`,
+   
     persons : [
         { name: `Neil Coutinho`, age: 32}
       ]
   });
 
-  //console.log(appState, setStateFn)
+  const [greetingState, setGreetingStateFn] = useState({
+      
+    greeting: `Hello World I'm from state`,
+    
+  });
+
+  //console.log(personState, setStateFn)
 
   const onClickHandler = () => {
-    setStateFn({
-        ...appState,
+    setGreetingStateFn({
          greeting: `I have been changed through state`
        });
   }
 
   return (
     <div className="App">
-      { appState.greeting }
+      { greetingState.greeting }
       <button onClick={onClickHandler}>BUTTON</button>
-      <Person name={appState.persons[0].name} age="32"/>
+      <Person name={personState.persons[0].name} age="32"/>
       <Person name="Karen Coutinho" age="31"/>
       <Person name="Isabelle Coutinho" age="2"><p>I am a baby</p></Person>
     </div>
