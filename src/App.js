@@ -11,10 +11,10 @@ class App extends Component {
     ]
   }
 
-  onClickHandler = () => {
-
+  onClickHandler = (name) => {
+    console.log(name)
    this.setState({
-     greeting: `I have been changed through state`
+     greeting: `I have been changed through state by ${name}`
    })
   }
 
@@ -23,8 +23,12 @@ class App extends Component {
     return (
       <div className="App">
         { this.state.greeting }
-        <button onClick={this.onClickHandler}>BUTTON</button>
-        <Person name={this.state.persons[0].name} age="32"/>
+        <button 
+        onClick={this.onClickHandler.bind(this,"button")}>BUTTON</button>
+        <Person 
+        onClickHandler={() => this.onClickHandler(this.state.persons[0].name)} 
+        name={this.state.persons[0].name} 
+        age="32"/>
         <Person name="Karen Coutinho" age="31"/>
         <Person name="Isabelle Coutinho" age="2"><p>I am a baby</p></Person>
       </div>
