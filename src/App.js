@@ -26,11 +26,17 @@ class App extends Component {
         <button 
         onClick={this.onClickHandler.bind(this,"button")}>BUTTON</button>
         <Person 
-        onClickHandler={() => this.onClickHandler(this.state.persons[0].name)} 
         name={this.state.persons[0].name} 
         age="32"/>
-        <Person name="Karen Coutinho" age="31"/>
-        <Person name="Isabelle Coutinho" age="2"><p>I am a baby</p></Person>
+        <Person name="Karen Coutinho" age="31"
+        
+        clickHandlerFn={() => this.onClickHandler(`Karen Coutinho`)}
+        />
+        <Person name="Isabelle Coutinho" age="2"
+        
+        clickHandlerFn={this.onClickHandler.bind(this,"Isabelle Coutinho")}
+        
+        ><p>I am a baby</p></Person>
       </div>
     )
 
