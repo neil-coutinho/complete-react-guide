@@ -6,7 +6,7 @@ import Person from './Person/Person';
 class App extends Component {
   state = {
     greeting: `Hello World I'm from state`,
-    showPersons: false,
+    showPersons: true,
     persons: [
       { name: `Neil Coutinho`, age: 32 },
       { name: `Karen Coutinho`, age: 31 },
@@ -42,6 +42,19 @@ class App extends Component {
       });
   }
 
+  deletePerson(index) {
+   
+    const persons = [...this.state.persons];
+    persons.splice(index, 1);
+
+    
+
+    this.setState({
+      persons: persons
+    });
+
+  }
+
 
 
   render() {
@@ -54,12 +67,14 @@ class App extends Component {
 
           {
 
-            this.state.persons.map((person) => {
+            this.state.persons.map((person, index) => {
               
               return (
                 <Person
                 name={person.name}
                 age={person.age}
+                index={index}
+                deleteHandler={(index) => this.deletePerson(index)}
                 
               />
               )
