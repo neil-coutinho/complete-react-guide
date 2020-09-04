@@ -8,9 +8,9 @@ class App extends Component {
     greeting: `Hello World I'm from state`,
     showPersons: true,
     persons: [
-      { name: `Neil Coutinho`, age: 32 },
-      { name: `Karen Coutinho`, age: 31 },
-      { name: `Isabelle Coutinho`, age: 22 }
+      { id: 100, name: `Neil Coutinho`, age: 32 },
+      { id: 101, name: `Karen Coutinho`, age: 31 },
+      { id: 102, name: `Isabelle Coutinho`, age: 22 }
     ]
   }
 
@@ -74,6 +74,7 @@ class App extends Component {
                 name={person.name}
                 age={person.age}
                 index={index}
+                key={person.id}
                 deleteHandler={() => this.deletePerson(index)}
                 
               />
