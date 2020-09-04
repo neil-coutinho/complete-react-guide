@@ -8,7 +8,9 @@ class App extends Component {
     greeting: `Hello World I'm from state`,
     showPersons: false,
     persons: [
-      { name: `Neil Coutinho`, age: 32 }
+      { name: `Neil Coutinho`, age: 32 },
+      { name: `Karen Coutinho`, age: 31 },
+      { name: `Isabelle Coutinho`, age: 22 }
     ]
   }
 
@@ -49,7 +51,27 @@ class App extends Component {
     if (this.state.showPersons) {
      persons = (
         <div>
-          <Person
+
+          {
+
+            this.state.persons.map((person) => {
+              
+              return (
+                <Person
+                name={person.name}
+                age={person.age}
+                
+              />
+              )
+
+            })
+
+          }
+
+
+
+
+          {/* <Person
             name={this.state.persons[0].name}
             age="32"
             onNameChange={(e) => this.onNameChangeHandler(e)}
@@ -62,7 +84,7 @@ class App extends Component {
 
             onClickHandler={this.onClickHandler.bind(this, "Isabelle Coutinho")}
 
-          ><p>I am a baby</p></Person>
+          ><p>I am a baby</p></Person> */}
         </div>
       )
     }
