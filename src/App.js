@@ -43,7 +43,7 @@ class App extends Component {
   }
 
   deletePerson(index) {
-   
+   console.log({index})
     const persons = [...this.state.persons];
     persons.splice(index, 1);
 
@@ -74,7 +74,7 @@ class App extends Component {
                 name={person.name}
                 age={person.age}
                 index={index}
-                deleteHandler={(index) => this.deletePerson(index)}
+                deleteHandler={() => this.deletePerson(index)}
                 
               />
               )
