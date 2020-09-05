@@ -56,6 +56,23 @@ class App extends Component {
   }
 
 
+  nameChangeHandler = ($event, index) => {
+    const person = {
+      ...this.state.persons[index]
+    };
+
+    const persons = [...this.state.persons];
+
+    person.name = $event.target.value;
+
+    persons[index] = {...person}
+
+    this.setState({
+      persons: persons
+    })
+  }
+
+
 
   render() {
 
@@ -72,11 +89,11 @@ class App extends Component {
               return (
                 <Person
                 name={person.name}
-                age={person.age}
+                a={person.a}
                 index={index}
                 key={person.id}
                 deleteHandler={() => this.deletePerson(index)}
-                
+                nameChangeHandler={($e) => this.nameChangeHandler($e, index)}
               />
               )
 
@@ -89,14 +106,14 @@ class App extends Component {
 
           {/* <Person
             name={this.state.persons[0].name}
-            age="32"
+            a="32"
             onNameChange={(e) => this.onNameChangeHandler(e)}
           />
-          <Person name="Karen Coutinho" age="31"
+          <Person name="Karen Coutinho" a="31"
             onNameChange={this.onNameChangeHandler.bind(this)}
             clickHandlerFn={() => this.onClickHandler(`Karen Coutinho`)}
           />
-          <Person name="Isabelle Coutinho" age="2"
+          <Person name="Isabelle Coutinho" a="2"
 
             onClickHandler={this.onClickHandler.bind(this, "Isabelle Coutinho")}
 
