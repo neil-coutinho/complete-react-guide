@@ -77,8 +77,18 @@ class App extends Component {
   render() {
 
     let persons = null;
+    const buttonStyle = {
+      backgroundColor: 'green',
+      color: '#fff',
+      borderColor: 'green'
+    }
 
     if (this.state.showPersons) {
+
+      buttonStyle['backgroundColor'] = 'red';
+      buttonStyle['borderColor'] = 'red';
+
+
      persons = (
         <div>
 
@@ -129,7 +139,7 @@ class App extends Component {
           onClick={this.onClickHandler.bind(this, "button")}>BUTTON</button>
 
         <p>
-          <button onClick={this.togglePersons}>Toggle Persons List</button>
+          <button onClick={this.togglePersons} style={buttonStyle}>Toggle Persons List</button>
         </p>
 
         {persons}
