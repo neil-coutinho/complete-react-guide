@@ -132,6 +132,14 @@ class App extends Component {
       )
     }
 
+    const classes = [];
+
+    if(this.state.persons.length < 2) {
+      classes.push('color-red');
+    } else {
+      classes.push('color-green')
+    }
+
     return (
       <div className="App">
         {this.state.greeting}
@@ -141,6 +149,8 @@ class App extends Component {
         <p>
           <button onClick={this.togglePersons} style={buttonStyle}>Toggle Persons List</button>
         </p>
+
+     <h4 className={classes.join(' ')}>No of persons: {this.state.persons.length}</h4>
 
         {persons}
       </div>
