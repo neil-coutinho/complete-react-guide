@@ -1,8 +1,17 @@
 import React from 'react';
+import Radium from 'radium';
 const person = (props) => {
   //  console.log(props)
+
+  const style = {
+      textAlign: 'left',
+      '@media (max-width: 767px)' : {
+        textAlign: 'center'
+      }
+  }
+
     return (
-       <div>
+       <div style={style} className="Person">
         <p>{props.index} => Hi! my name is {props.name} and I am {props.age} years old</p>
         {props.children}
         {/* <p><button onClick={props.onClickHandler}>Change Greeting</button> </p>*/}
@@ -17,4 +26,4 @@ const person = (props) => {
 }
 
 
-export default person
+export default Radium(person)
