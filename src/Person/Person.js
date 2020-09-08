@@ -1,5 +1,5 @@
 import React from 'react';
-import Radium from 'radium';
+
 const person = (props) => {
   //  console.log(props)
 
@@ -26,4 +26,4 @@ const person = (props) => {
 }
 
 
-export default Radium(person)
+export default person
