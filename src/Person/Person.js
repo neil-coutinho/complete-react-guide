@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const PersonWrapper = styled.div``;
+const PersonWrapper = styled.div`
+  background: #f5f5f5;
+  margin-bottom: 10px;
+  padding: 10px;
+`;
 
 
 const person = (props) => {
