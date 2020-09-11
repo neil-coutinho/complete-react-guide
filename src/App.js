@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import styled from 'styled-components';
 
-
+const ButtonStyled = styled.button`
+  background-color: green;
+  color: #fff;
+  border-color: green;
+  &:hover {
+    background: blue;
+  }
+  
+  `;
 
 class App extends Component {
   state = {
@@ -14,6 +23,8 @@ class App extends Component {
       { id: 102, name: `Isabelle Coutinho`, age: 22 }
     ]
   }
+
+  
 
   onClickHandler = (name) => {
     console.log(name)
@@ -78,19 +89,10 @@ class App extends Component {
   render() {
 
     let persons = null;
-    const buttonStyle = {
-      backgroundColor: 'green',
-      color: '#fff',
-      borderColor: 'green',
-      ':hover' : {
-        backgroundColor: 'blue'
-      }
-    }
+    
 
     if (this.state.showPersons) {
 
-      buttonStyle['backgroundColor'] = 'red';
-      buttonStyle['borderColor'] = 'red';
 
 
      persons = (
@@ -115,23 +117,6 @@ class App extends Component {
 
           }
 
-
-
-
-          {/* <Person
-            name={this.state.persons[0].name}
-            a="32"
-            onNameChange={(e) => this.onNameChangeHandler(e)}
-          />
-          <Person name="Karen Coutinho" a="31"
-            onNameChange={this.onNameChangeHandler.bind(this)}
-            clickHandlerFn={() => this.onClickHandler(`Karen Coutinho`)}
-          />
-          <Person name="Isabelle Coutinho" a="2"
-
-            onClickHandler={this.onClickHandler.bind(this, "Isabelle Coutinho")}
-
-          ><p>I am a baby</p></Person> */}
         </div>
       )
     }
@@ -152,7 +137,7 @@ class App extends Component {
             onClick={this.onClickHandler.bind(this, "button")}>BUTTON</button>
 
           <p>
-            <button onClick={this.togglePersons} style={buttonStyle}>Toggle Persons List</button>
+            <ButtonStyled onClick={this.togglePersons}>Toggle Persons List</ButtonStyled>
           </p>
 
       <h4 className={classes.join(' ')}>No of persons: {this.state.persons.length}</h4>
