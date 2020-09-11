@@ -4,11 +4,11 @@ import Person from './Person/Person';
 import styled from 'styled-components';
 
 const ButtonStyled = styled.button`
-  background-color: green;
+  background-color: ${props => props.count < 2 ? 'red' : 'green'};
   color: #fff;
   border-color: green;
   &:hover {
-    background: blue;
+    background: ${props => props.count < 2 ? 'black' : 'lightGreen'};;
   }
   
   `;
@@ -137,7 +137,7 @@ class App extends Component {
             onClick={this.onClickHandler.bind(this, "button")}>BUTTON</button>
 
           <p>
-            <ButtonStyled onClick={this.togglePersons}>Toggle Persons List</ButtonStyled>
+            <ButtonStyled count={this.state.persons.length} onClick={this.togglePersons}>Toggle Persons List</ButtonStyled>
           </p>
 
       <h4 className={classes.join(' ')}>No of persons: {this.state.persons.length}</h4>
