@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person';
 import styled from 'styled-components';
 
@@ -89,6 +89,8 @@ class App extends Component {
   render() {
 
     let persons = null;
+
+   
     
 
     if (this.state.showPersons) {
@@ -121,12 +123,12 @@ class App extends Component {
       )
     }
 
-    const classes = [];
+    const customClass = [];
 
     if(this.state.persons.length < 2) {
-      classes.push('color-red');
+      customClass.push('color-red');
     } else {
-      classes.push('color-green')
+      customClass.push('color-green')
     }
 
     return (
@@ -134,13 +136,14 @@ class App extends Component {
         <div className="App">
           {this.state.greeting}
           <button
-            onClick={this.onClickHandler.bind(this, "button")}>BUTTON</button>
+className={classes.test}
+  onClick={this.onClickHandler.bind(this, "button")}>BUTTON</button>
 
           <p>
             <ButtonStyled count={this.state.persons.length} onClick={this.togglePersons}>Toggle Persons List</ButtonStyled>
           </p>
 
-      <h4 className={classes.join(' ')}>No of persons: {this.state.persons.length}</h4>
+      <h4 className={customClass.join(' ')}>No of persons: {this.state.persons.length}</h4>
 
           {persons}
         </div>
