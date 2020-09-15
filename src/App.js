@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
 import styled from 'styled-components';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 const ButtonStyled = styled.button`
   background-color: ${props => props.count < 2 ? 'red' : 'green'};
@@ -103,14 +104,19 @@ class App extends Component {
             this.state.persons.map((person, index) => {
               
               return (
-                <Person
-                name={person.name}
-                a={person.a}
-                index={index}
-                key={person.id}
-                deleteHandler={() => this.deletePerson(index)}
-                nameChangeHandler={($e) => this.nameChangeHandler($e, index)}
-              />
+
+                <ErrorBoundary  key={person.id}>
+                  <Person
+                    name={person.name}
+                    a={person.a}
+                    index={index}
+                   
+                    deleteHandler={() => this.deletePerson(index)}
+                    nameChangeHandler={($e) => this.nameChangeHandler($e, index)}
+                  />
+                </ErrorBoundary>
+
+                
               )
 
             })

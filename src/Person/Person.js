@@ -14,7 +14,7 @@ const person = (props) => {
 
   const style = {
     textAlign: 'left',
-    '@media (max-width: 767px)': {
+    '@media (maxWidth: 767px)': {
       textAlign: 'center'
     }
   }
