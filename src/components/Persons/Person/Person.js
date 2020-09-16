@@ -19,9 +19,7 @@ const person = (props) => {
     }
   }
 
-  if(props.index === 1) { //TEST ONLY
-    throw new Error ('Something went wrong');
-  }
+  
 
   return (
     <PersonWrapper>
