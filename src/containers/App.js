@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from '../components/Persons/Person/Person';
+import Persons from '../components/Persons/Persons';
 import styled from 'styled-components';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+
 
 const ButtonStyled = styled.button`
   background-color: ${props => props.count < 2 ? 'red' : 'green'};
@@ -26,27 +26,21 @@ class App extends Component {
   }
 
   
-
+  /**
+   * 
+   * @param {*} name 
+   */
   onClickHandler = (name) => {
     console.log(name)
     this.setState({
       greeting: `I have been changed through state by ${name}`
     })
   }
-
-  onNameChangeHandler(event) {
-
-    this.setState({
-
-      persons: [{
-        name: event.target.value, age: 32
-      }]
-    })
-  }
+  
 
 
   togglePersons = () => {
-
+   
     let currentState = this.state.showPersons;
 
     this.setState(
@@ -56,7 +50,9 @@ class App extends Component {
   }
 
   deletePerson(index) {
-   console.log({index})
+  //  console.log({index})
+  //  console.log(this);
+  //  console.log(this.state.persons);
     const persons = [...this.state.persons];
     persons.splice(index, 1);
 
@@ -70,6 +66,7 @@ class App extends Component {
 
 
   nameChangeHandler = ($event, index) => {
+    console.log(this)
     const person = {
       ...this.state.persons[index]
     };
@@ -97,33 +94,11 @@ class App extends Component {
 
 
      persons = (
-        <div>
+       
 
-          {
+         <Persons persons={this.state.persons} change={this.nameChangeHandler} delete={(index) => this.deletePerson(index)}/>
 
-            this.state.persons.map((person, index) => {
-              
-              return (
-
-                <ErrorBoundary  key={person.id}>
-                  <Person
-                    name={person.name}
-                    a={person.a}
-                    index={index}
-                   
-                    deleteHandler={() => this.deletePerson(index)}
-                    nameChangeHandler={($e) => this.nameChangeHandler($e, index)}
-                  />
-                </ErrorBoundary>
-
-                
-              )
-
-            })
-
-          }
-
-        </div>
+       
       )
     }
 
