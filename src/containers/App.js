@@ -15,6 +15,12 @@ const ButtonStyled = styled.button`
   `;
 
 class App extends Component {
+ 
+  constructor(props) {
+    super(props)
+    console.log('App.js constructor')
+  }
+
   state = {
     greeting: `Hello World I'm from state`,
     showPersons: true,
@@ -23,6 +29,15 @@ class App extends Component {
       { id: 101, name: `Karen Coutinho`, age: 31 },
       { id: 102, name: `Isabelle Coutinho`, age: 22 }
     ]
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('App js getDerivedStateFromProps', props, state)
+    return state
+  }
+
+  componentDidMount() {
+    console.log('App.js componentDidMount')
   }
 
   
@@ -84,8 +99,9 @@ class App extends Component {
 
 
 
-  render() {
 
+  render() {
+    console.log('App.js render')
     let persons = null;
     
 
@@ -131,7 +147,7 @@ class App extends Component {
 
   }
 
-
+  
 }
 
 export default App;

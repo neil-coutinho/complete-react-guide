@@ -11,7 +11,7 @@ const PersonWrapper = styled.div`
 
 const person = (props) => {
   //  console.log(props)
-
+  console.log('Person.js')
   const style = {
     textAlign: 'left',
     '@media (maxWidth: 767px)': {
