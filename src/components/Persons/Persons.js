@@ -6,10 +6,18 @@ class Persons extends Component {
 
   constructor(props) {
     super(props)
+
+    this.state = {};
   }
 
-  getDerivedStateFromProps(props, state) {
+  static getDerivedStateFromProps(props, state) {
+    console.log('Persons.js getDerivedStateFromProps');
     return state;
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("Persons.js shouldComponentUpdate", nextProps, nextState) //NOTE: must return a boolean
+    return true;
   }
 
   render() {
