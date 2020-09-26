@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ErrorBoundary from '../../containers/ErrorBoundary/ErrorBoundary';
 import Person from './Person/Person';
 
-const Persons = (props) => {
-    console.log(props);
+class Persons extends Component {
+
+  constructor(props) {
+    super(props)
+  }
+
+  getDerivedStateFromProps(props, state) {
+    return state;
+  }
+
+  render() {
     return (
        
     
-        props.persons.map((person, index) => {
+        this.props.persons.map((person, index) => {
 
               
             return (
@@ -17,9 +26,9 @@ const Persons = (props) => {
                   name={person.name}
                   a={person.a}
                   index={index}
-                 
-                  deleteHandler={() => props.delete(index)}
-                  nameChangeHandler={($e) => props.change($e, index)}
+                
+                  deleteHandler={() => this.props.delete(index)}
+                  nameChangeHandler={($e) => this.props.change($e, index)}
                 />
               </ErrorBoundary>
 
@@ -30,6 +39,10 @@ const Persons = (props) => {
 
 
     )
+  }
+
+  
+    
 }
 
 export default Persons;
