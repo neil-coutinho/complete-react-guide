@@ -15,6 +15,11 @@ const person = (props) => {
     console.log('useEffect A called')
   })
 
+  //USE EFFECT B WILL BE CALLED ONLY ONCE
+  useEffect(() => {
+    console.log('useEffect B called once per person')
+  },[])
+
 
   //  console.log(props)
   console.log('Person.js')
