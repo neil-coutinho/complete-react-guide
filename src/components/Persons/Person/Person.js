@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 
@@ -10,6 +10,12 @@ const PersonWrapper = styled.div`
 
 
 const person = (props) => {
+  //USE EFFECT A
+  useEffect(() => {
+    console.log('useEffect A called')
+  })
+
+
   //  console.log(props)
   console.log('Person.js')
   const style = {
