@@ -20,6 +20,11 @@ const person = (props) => {
     console.log('useEffect B called once per person')
   },[])
 
+   //USE EFFECT C 
+   useEffect(() => {
+    console.log(`useEffect C called only when component ${props.index} prop changes`)
+  },[props.name])
+
 
   //  console.log(props)
   console.log('Person.js')
