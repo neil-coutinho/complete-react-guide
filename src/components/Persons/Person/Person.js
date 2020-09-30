@@ -23,6 +23,7 @@ const person = (props) => {
    //USE EFFECT C 
    useEffect(() => {
     console.log(`useEffect C called only when component ${props.index} prop changes`)
+    return () => { console.log('Stuff to do when the component is removed')}
   },[props.name])
 
 
