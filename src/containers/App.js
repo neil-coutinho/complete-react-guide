@@ -130,8 +130,11 @@ class App extends Component {
      
         <div className="App">
           {this.state.greeting}
-          <button
-            onClick={this.onClickHandler.bind(this, "button")}>BUTTON</button>
+          {/* <button
+            onClick={this.onClickHandler.bind(this, "button")}>BUTTON</button> */}
+
+<button
+            onClick={() => this.onClickHandler("button")}>BUTTON</button> 
 
           <p>
             <ButtonStyled count={this.state.persons.length} onClick={this.togglePersons}>Toggle Persons List</ButtonStyled>
