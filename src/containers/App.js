@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Persons from '../components/Persons/Persons';
 import styled from 'styled-components';
+import Cockpit from '../components/Cockpit/Cockpit'
 
 
 const ButtonStyled = styled.button`
@@ -15,7 +16,7 @@ const ButtonStyled = styled.button`
   `;
 
 class App extends Component {
- 
+
   constructor(props) {
     super(props)
     console.log('App.js constructor')
@@ -40,7 +41,7 @@ class App extends Component {
     console.log('App.js componentDidMount')
   }
 
-  
+
   /**
    * 
    * @param {*} name 
@@ -51,11 +52,11 @@ class App extends Component {
       greeting: `I have been changed through state by ${name}`
     })
   }
-  
+
 
 
   togglePersons = () => {
-   
+
     let currentState = this.state.showPersons;
 
     this.setState(
@@ -65,13 +66,13 @@ class App extends Component {
   }
 
   deletePerson(index) {
-  //  console.log({index})
-  //  console.log(this);
-  //  console.log(this.state.persons);
+    //  console.log({index})
+    //  console.log(this);
+    //  console.log(this.state.persons);
     const persons = [...this.state.persons];
     persons.splice(index, 1);
 
-    
+
 
     this.setState({
       persons: persons
@@ -90,7 +91,7 @@ class App extends Component {
 
     person.name = $event.target.value;
 
-    persons[index] = {...person}
+    persons[index] = { ...person }
 
     this.setState({
       persons: persons
@@ -103,54 +104,50 @@ class App extends Component {
   render() {
     console.log('App.js render')
     let persons = null;
-    
+
 
     if (this.state.showPersons) {
 
 
 
-     persons = (
-       
+      persons = (
 
-         <Persons persons={this.state.persons} change={this.nameChangeHandler} delete={(index) => this.deletePerson(index)}/>
 
-       
+        <Persons persons={this.state.persons} change={this.nameChangeHandler} delete={(index) => this.deletePerson(index)} />
+
+
       )
     }
 
     const classes = [];
 
-    if(this.state.persons.length < 2) {
+    if (this.state.persons.length < 2) {
       classes.push('color-red');
     } else {
       classes.push('color-green')
     }
 
     return (
-     
-        <div className="App">
-          {this.state.greeting}
-          {/* <button
-            onClick={this.onClickHandler.bind(this, "button")}>BUTTON</button> */}
 
-<button
-            onClick={() => this.onClickHandler("button")}>BUTTON</button> 
+      <div className="App">
+        <Cockpit greeting={this.state.greeting}
+         onClickHandler={() => this.onClickHandler('button')}
+        />
+        <p>
+          <ButtonStyled count={this.state.persons.length} onClick={this.togglePersons}>Toggle Persons List</ButtonStyled>
+        </p>
 
-          <p>
-            <ButtonStyled count={this.state.persons.length} onClick={this.togglePersons}>Toggle Persons List</ButtonStyled>
-          </p>
+        <h4 className={classes.join(' ')}>No of persons: {this.state.persons.length}</h4>
 
-      <h4 className={classes.join(' ')}>No of persons: {this.state.persons.length}</h4>
+        {persons}
+      </div>
 
-          {persons}
-        </div>
-    
-      
+
     )
 
   }
 
-  
+
 }
 
 export default App;
