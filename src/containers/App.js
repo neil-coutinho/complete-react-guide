@@ -132,12 +132,14 @@ class App extends Component {
       <div className="App">
         <Cockpit greeting={this.state.greeting}
          onClickHandler={() => this.onClickHandler('button')}
+         persons={this.state.persons}
+         classes={classes.join('')}
         />
         <p>
           <ButtonStyled count={this.state.persons.length} onClick={this.togglePersons}>Toggle Persons List</ButtonStyled>
         </p>
 
-        <h4 className={classes.join(' ')}>No of persons: {this.state.persons.length}</h4>
+       
 
         {persons}
       </div>

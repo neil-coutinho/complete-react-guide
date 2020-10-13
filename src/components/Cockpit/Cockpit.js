@@ -6,6 +6,10 @@ const cockpit = (props) => {
         console.log('Cockpit useEffect')
     }, [props.greeting])
 
+    useEffect(() => {
+        console.log('Cockpit useEffect w/o props')
+    })
+
     return (
         <div>
             { props.greeting } 
@@ -13,6 +17,8 @@ const cockpit = (props) => {
             <p>
             <button onClick={props.onClickHandler}>BUTTON</button> 
             </p>
+
+            <h4 className={props.classes}>No of persons: {props.persons.length}</h4>
         </div>
       
     )
