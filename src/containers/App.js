@@ -132,7 +132,7 @@ class App extends Component {
       <div className="App">
         <Cockpit greeting={this.state.greeting}
          onClickHandler={() => this.onClickHandler('button')}
-         persons={this.state.persons}
+         personsLength={this.state.persons.length}
          classes={classes.join('')}
         />
         <p>
