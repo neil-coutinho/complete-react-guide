@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import ErrorBoundary from '../../containers/ErrorBoundary/ErrorBoundary';
 import Person from './Person/Person';
 
-class Persons extends Component {
+class Persons extends PureComponent {
 
   constructor(props) {
     super(props)
@@ -15,17 +15,20 @@ class Persons extends Component {
     return state;
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log("Persons.js shouldComponentUpdate", nextProps, nextState) //NOTE: must return a boolean
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log("Persons.js shouldComponentUpdate", nextProps, nextState) //NOTE: must return a boolean
     
-    if(nextProps.persons != this.props.persons) {
-      return true;
-    } 
+  //   if(nextProps.persons != this.props.persons) {
+  //     console.log(true)
+  //     return true;
+  //   } 
 
-    return false;
+  //   console.log(false)
+
+  //   return false;
     
     
-  }
+  // }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log("Persons.js getSnapshotBeforeUpdate", prevProps, prevState);
@@ -37,6 +40,7 @@ class Persons extends Component {
   }
 
   render() {
+    console.log("Persons.js RENDER")
     return (
        
     
