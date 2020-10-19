@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Frag  from '../Frag/Frag';
 
 const cockpit = (props) => {
 
@@ -17,6 +18,8 @@ const cockpit = (props) => {
     return (
         <div>
             { props.greeting } 
+
+            <Frag/>
             
             <p>
             <button onClick={props.onClickHandler}>BUTTON</button> 
