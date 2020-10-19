@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Frag  from '../Frag/Frag';
+import FragClass from '../FragClass/FragClass';
 
 const cockpit = (props) => {
 
@@ -15,9 +16,13 @@ const cockpit = (props) => {
         console.log('Cockpit useEffect with []')
     },[])
 
+    const fragClassMsg = 'Hello World';
+
     return (
         <div>
             { props.greeting } 
+
+            <FragClass message={fragClassMsg}/>
 
             <Frag/>
             
