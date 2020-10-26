@@ -8,6 +8,7 @@ class Persons extends PureComponent {
     super(props)
 
     this.state = {};
+    this.personRef = React.createRef()
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -39,6 +40,10 @@ class Persons extends PureComponent {
     console.log("Persons.js componentDidUpdate", prevState);
   }
 
+  componentDidMount() {
+    console.log(this.personRef)
+  }
+
   render() {
     console.log("Persons.js RENDER")
     return (
@@ -49,12 +54,12 @@ class Persons extends PureComponent {
               
             return (
 
-              <ErrorBoundary  key={person.id}>
+              <ErrorBoundary  key={person.id}  ref={this.personRef}>
                 <Person
                   name={person.name}
                   a={person.a}
                   index={index}
-                
+                 
                   deleteHandler={() => this.props.delete(index)}
                   nameChangeHandler={($e) => this.props.change($e, index)}
                 />
